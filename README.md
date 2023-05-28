@@ -36,4 +36,5 @@ O resultado final foi um banco de dados funcional, projetado de acordo com as ne
 
 ## Conclusão
 
-O projeto Pset representou uma oportunidade emocionante de explorar o mundo dos bancos de dados e desenvolver minhas
+O projeto Pset representou uma oportunidade emocionante de explorar o mundo dos bancos de dados e desenvolver minhas habilidades
+
