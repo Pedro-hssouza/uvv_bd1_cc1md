@@ -1,14 +1,14 @@
 /* Criaçao de um projeto de banco de dados para a disciplina de Design e Desenvolvimento de Banco de Dados com professor Abraantes.
-Aluno:Pedro Henrique Souza Santos*/
+Aluno:Pedro Henrique Souza Santos
+Turma:CC1md */
 
-
-DROP USER IF EXISTS pedro_souza;
 DROP DATABASE IF EXISTS lojas_uvv;
+DROP USER IF EXISTS pedro_souza;
 /* Apagando o banco de dados com nome 'lojas_uvv' caso ja exista um, e apagando também o usuário 'pedro_santos' caso exista*/
 
 
 /* Criando o  usuário para dar autorizações de acesso a banco de dados a ele*/
- CREATE USER pedro_souza
+CREATE USER pedro_souza
 with createdb 
 createrole 
 encrypted password '3691052uvv';
@@ -44,7 +44,7 @@ CREATE TABLE produtos (
                 imagem_mime_type            VARCHAR(512),
                 imagem_arquivo              VARCHAR(512),
                 imagem_charset              VARCHAR(512),
-                CONSTRAINT pk_produto_id    PRIMARY KEY (produto_id)-- Criação da pk da tabela
+                CONSTRAINT pk_produtos      PRIMARY KEY (produto_id)-- Criação da pk da tabela
 );
  /*Nesta parte é feito um comentario sobre cada coluna explicando o que vai ser armazenado*/
 
@@ -72,7 +72,7 @@ CREATE TABLE lojas (
                 logo_arquivo                VARCHAR(512),
                 logo_charset                VARCHAR,
                 logo_ultima_atualizacao     DATE,
-                CONSTRAINT pK_loja_id       PRIMARY KEY (loja_id)-- Criação da pk da tabela
+                CONSTRAINT pK_lojas         PRIMARY KEY (loja_id)-- Criação da pk da tabela
 );
  /*Nesta parte é feito um comentario sobre cada coluna explicando o que vai ser armazenado*/
  
@@ -95,7 +95,7 @@ CREATE TABLE estoques (
                 loja_id                     NUMERIC(38) NOT NULL,
                 produto_id                  NUMERIC(38) NOT NULL,
                 quantidade                  NUMERIC(38),
-                CONSTRAINT pk_estoque_id    PRIMARY KEY (estoque_id)-- Criação da pk da tabela
+                CONSTRAINT pk_estoques      PRIMARY KEY (estoque_id)-- Criação da pk da tabela
             );
  /*Nesta parte é feito um comentario sobre cada coluna explicando o que vai ser armazenado*/
 
@@ -112,7 +112,7 @@ CREATE TABLE clientes (
                 telefone1                   VARCHAR(20),
                 telefone2                   VARCHAR(20),
                 telefone3                   VARCHAR(20),
-                CONSTRAINT pk_cliente_id    PRIMARY KEY (cliente_id)-- Criação da pk da tabela
+                CONSTRAINT pk_clientes      PRIMARY KEY (cliente_id)-- Criação da pk da tabela
             );
  /*Nesta parte é feito um comentario sobre cada coluna explicando o que vai ser armazenado*/
 
@@ -131,7 +131,7 @@ CREATE TABLE envios (
                 cliente_id                  NUMERIC(38) NOT NULL,
                 endereco_entrega            VARCHAR(512),
                 status                      VARCHAR(15),
-                CONSTRAINT pK_envios_id     PRIMARY KEY (envio_id)-- Criação da pk da tabela
+                CONSTRAINT pK_envios        PRIMARY KEY (envio_id)-- Criação da pk da tabela
             );
  /*Nesta parte é feito um comentario sobre cada coluna explicando o que vai ser armazenado*/
 
@@ -149,7 +149,7 @@ CREATE TABLE pedidos (
                 cliente_id                  NUMERIC(38) NOT NULL,
                 status                      VARCHAR(15) NOT NULL,
                 loja_id                     NUMERIC(38) NOT NULL,
-                CONSTRAINT pK_pedido_id     PRIMARY KEY (pedido_id)-- Criação da pk da tabela
+                CONSTRAINT pK_pedidos       PRIMARY KEY (pedido_id)-- Criação da pk da tabela
             );
  /*Nesta parte é feito um comentario sobre cada coluna explicando o que vai ser armazenado*/
 
@@ -276,3 +276,5 @@ ALTER TABLE  pedidos
     ADD CONSTRAINT cc_pedidos_status
             CHECK( status in('COMPLETO','CANCELADO','ABERTO','REEMBOLSADO','PAGO','ENVIADO') );
 -- Essa constraint ela impede que outro elementos seja inseridos que não seja os citados dentro do parênteses:
+
+        
